@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  worker:
+    image: jordond/android-github-runner
+    environment:
+      REPO_URL: your-repo
+      ACCESS_TOKEN: your-token
+      RUNNER_WORKDIR: /tmp/runner/work
+      ORG_RUNNER: "false"
+      LABELS: linux,x64,gpu,android
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/tmp/runner:/tmp/runner"
